@@ -1,0 +1,1 @@
+("7.8" racket ("964d8ebb7f1cbd9f3f73a26fb3263a592f8825fc" . "5db5a8b9317034a2e39569621fc3742fed78570c") (collects #"errortrace" #"errortrace-key.rkt") (collects #"math" #"array.rkt") (collects #"math" #"matrix.rkt") (collects #"play" #"lang" #"reader.rkt") (collects #"play" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

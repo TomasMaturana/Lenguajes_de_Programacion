@@ -1,0 +1,82 @@
+#lang play
+(require math/matrix)
+(require math/array)
+
+
+(defmac (equilibrium (state : (action -> target) ...) ...)
+  #:keywords : ->
+  (letrec ([state
+            (if (eq? (quote state) (quote final-state))
+                ; if final state
+                (λ (stream)
+                  (or (empty? stream)   ; stream empty                      
+                      (case (first stream)
+                        [(action) (target (rest stream))]
+                        ...
+                        [else false])))
+                ; if not final state
+                (λ (stream)
+                  (and (cons? stream)   ; stream not empty
+                      (case (first stream)
+                        [(action) (target (rest stream))]
+                        ...
+                        [else false]))))]
+                        
+                        ...)
+    state))
+
+(defmac (automaton init-state
+                   final-state
+                   (state : (action → target) ...) ...)
+  #:keywords : →
+  (letrec ([state
+            (if (eq? (quote state) (quote final-state))
+                ; if final state
+                (λ (stream)
+                  (or (empty? stream)   ; stream empty                      
+                      (case (first stream)
+                        [(action) (target (rest stream))]
+                        ...
+                        [else false])))
+                ; if not final state
+                (λ (stream)
+                  (and (cons? stream)   ; stream not empty
+                      (case (first stream)
+                        [(action) (target (rest stream))]
+                        ...
+                        [else false]))))]
+                        
+                        ...)
+    init-state))
+
+(define m (automaton init
+                     end
+                     [init : (c → more)]
+                     [more : (a → more)
+                             (d → more)
+                             (r → end)]
+                     [end : ]))
+
+;; expanded version of m
+;;
+;(define m
+;  (letrec ([init
+;            (λ (stream)
+;              (and (cons? stream)
+;                   (case (first stream)
+;                     [(c) (more (rest stream))]
+;                     [else false])))]
+;           [more
+;            (λ (stream)
+;              (and (cons? stream)
+;                   (case (first stream)
+;                    [(a) (more (rest stream))]
+;                    [(d) (more (rest stream))]
+;                    [(r) (end (rest stream))]
+;                    [else false])))]
+;           [end
+;            (λ (stream)
+;              (or (empty? stream)
+;                  (case (first stream)
+;                    [else false])))])
+;    init))

@@ -1,0 +1,11 @@
+#lang play
+
+
+;; run :: s-expr -> value
+;; evaluates an expression using static scope and lazy evaluation 
+(define (run prog)
+   void)
+
+
+
+

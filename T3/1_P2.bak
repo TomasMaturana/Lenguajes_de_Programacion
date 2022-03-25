@@ -1,0 +1,25 @@
+#lang play
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;         PARTE a)         ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; run :: s-expr -> value
+;; evaluates an expression using static scope and lazy evaluation
+(define (run prog)
+  void)
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;         PARTE b)         ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; deeprun :: s-expr -> value
+;; evaluates an expression using static scope and lazy evaluation,
+;; fully reducing the returned value
+(define (deeprun prog)
+  void)
+
+
